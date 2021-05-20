@@ -20,18 +20,36 @@ envelopes = joe_mama
 
 ```{r, Question 1}
 reg_function_coef = function(x){
-    reg = felm(x ~ public | 0 | 0 | clustercode, 
+    reg = lm(x ~ public, 
                data = envelopes)
     coef = coef(reg)[2]
     return(coef)
 }
 
-reg_function_coef(envelopes$hyperbolic)
 
 ```
 
 
 ```{r}
+names(envelopes)
+
+coef_tab_list = c(
+house_size = reg_function_coef(envelopes$hhsize),
+school_coeff = reg_function_coef(envelopes$schooling),
+age_coeff = reg_function_coef(envelopes$age),
+sex_coeff = reg_function_coef(envelopes$sex),
+wealth_coeff = reg_function_coef(envelopes$wealth),
+windex_coef = reg_function_coef(envelopes$windex),
+hyperbolic_coef = reg_function_coef(envelopes$hyperbolic),
+hide_coeff= reg_function_coef(envelopes$hided_envelope))
+
+coef_tab_list %>% kbl(col.names = c("hhsize","schooling","age","sex","wealth","windex",
+                                    "hyperbolic","hided_envelope"),
+                      caption = "Table 2: Demographic Characteristics By Research Groups") %>% kable_paper("hover", full_width=F)
 
 ```
+
+
+
+
 
