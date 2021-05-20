@@ -40,7 +40,7 @@ sqrt(diag(vcov(a)))[2]
 
 
 ```{r}
-names(envelopes)
+#names(envelopes)
 
 coef_tab_list <- tibble(Name = c("hhsize","schooling","age","sex","wealth","windex",
                                     "hyperbolic","hided_envelope")) %>% mutate(coef_tab_list = c(
