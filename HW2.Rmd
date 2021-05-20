@@ -15,10 +15,11 @@ p_load(readr, data.table, dplyr, janitor, haven, here,
 ```{r}
 # Load data
 joe_mama = read_dta(here("MoneyExperiment.dta")) 
-
+envelopes = joe_mama
 ```
 
 ```{r}
+
 
 ```
 
