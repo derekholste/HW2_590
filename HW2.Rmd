@@ -18,8 +18,15 @@ joe_mama = read_dta(here("MoneyExperiment.dta"))
 envelopes = joe_mama
 ```
 
-```{r}
+```{r, Question 1}
+reg_function_coef = function(x){
+    reg = felm(x ~ public | 0 | 0 | clustercode, 
+               data = envelopes)
+    coef = coef(reg)[2]
+    return(coef)
+}
 
+reg_function_coef(envelopes$hyperbolic)
 
 ```
 
