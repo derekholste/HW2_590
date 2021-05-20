@@ -33,7 +33,8 @@ reg_function_coef = function(x){
 ```{r}
 names(envelopes)
 
-coef_tab_list = c(
+coef_tab_list <- tibble(Name = c("hhsize","schooling","age","sex","wealth","windex",
+                                    "hyperbolic","hided_envelope")) %>% mutate(coef_tab_list = c(
 house_size = reg_function_coef(envelopes$hhsize),
 school_coeff = reg_function_coef(envelopes$schooling),
 age_coeff = reg_function_coef(envelopes$age),
@@ -41,10 +42,11 @@ sex_coeff = reg_function_coef(envelopes$sex),
 wealth_coeff = reg_function_coef(envelopes$wealth),
 windex_coef = reg_function_coef(envelopes$windex),
 hyperbolic_coef = reg_function_coef(envelopes$hyperbolic),
-hide_coeff= reg_function_coef(envelopes$hided_envelope))
+hide_coeff= reg_function_coef(envelopes$hided_envelope)))
 
-coef_tab_list %>% kbl(col.names = c("hhsize","schooling","age","sex","wealth","windex",
-                                    "hyperbolic","hided_envelope"),
+
+
+coef_tab_list %>% kbl(col.names = c("Name","Beta"),
                       caption = "Table 2: Demographic Characteristics By Research Groups") %>% kable_paper("hover", full_width=F)
 
 ```
