@@ -1,0 +1,29 @@
+---
+title: "HW2"
+author: "Da Bois BB"
+date: "5/20/2021"
+output: pdf_document
+---
+
+```{r}
+library(pacman)
+p_load(readr, data.table, dplyr, janitor, haven, here, 
+       tidyverse, skimr, lfe, stargazer, quantreg, hrbrthemes, 
+       tinytex, kableExtra, broom)
+```
+
+```{r}
+# Load data
+joe_mama = read_dta(here("MoneyExperiment.dta")) 
+
+```
+
+```{r}
+
+```
+
+
+```{r}
+
+```
+
