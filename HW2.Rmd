@@ -29,10 +29,12 @@ reg_function_coef = function(x){
 reg_function_se = function(x){
     reg = lm(x ~ public, 
                data = envelopes)
-    se = sqrt(diag(vcov(reg)))[]
+    se = sqrt(diag(vcov(reg)))[2]
     return(se)
 }
 
+a <- lm(sex ~ public, data = joe_mama)
+sqrt(diag(vcov(a)))[2]
 
 ```
 
@@ -51,14 +53,14 @@ windex_coef = reg_function_coef(envelopes$windex),
 hyperbolic_coef = reg_function_coef(envelopes$hyperbolic),
 hide_coeff= reg_function_coef(envelopes$hided_envelope))) %>% 
   mutate(se_tab_list = c(
-house_size = reg_function_se(envelopes$hhsize)[1],
-school_coeff = reg_function_se(envelopes$schooling)[1],
-age_coeff = reg_function_se(envelopes$age)[1],
-sex_coeff = reg_function_se(envelopes$sex)[1],
-wealth_coeff = reg_function_se(envelopes$wealth)[1],
-windex_coef = reg_function_se(envelopes$windex)[1],
-hyperbolic_coef = reg_function_se(envelopes$hyperbolic)[1],
-hide_coeff= reg_function_se(envelopes$hided_envelope)[1]))
+house_size = reg_function_se(envelopes$hhsize),
+school_coeff = reg_function_se(envelopes$schooling),
+age_coeff = reg_function_se(envelopes$age),
+sex_coeff = reg_function_se(envelopes$sex),
+wealth_coeff = reg_function_se(envelopes$wealth),
+windex_coef = reg_function_se(envelopes$windex),
+hyperbolic_coef = reg_function_se(envelopes$hyperbolic),
+hide_coeff= reg_function_se(envelopes$hided_envelope)))
 
 
 
